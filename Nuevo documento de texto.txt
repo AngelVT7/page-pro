@@ -1,0 +1,53 @@
+app/
+ ├─ core/
+ │   ├─ services/
+ │   │   ├─ data.service.ts
+ │   │   ├─ theme.service.ts
+ │   │   └─ contact.service.ts
+ │   └─ models/
+ │
+ ├─ layout/
+ │   ├─ navbar/
+ │   ├─ footer/
+ │   └─ main-layout.component.ts
+ │
+ ├─ shared/
+ │   ├─ ui/
+ │   │   ├─ button/
+ │   │   ├─ card/
+ │   │   ├─ modal/
+ │   │   └─ section-title/
+ │   │
+ │   └─ features/
+ │       ├─ whatsapp-float/
+ │       ├─ darkmode-toggle/
+ │       └─ scroll-top/
+ │
+ ├─ pages/
+ │   ├─ home/
+ │   ├─ about/
+ │   ├─ services/
+ │   ├─ vr-tour/
+ │   └─ contact/
+
+
+assets/styles/
+ ├─ _variables.scss
+ ├─ _mixins.scss
+ ├─ _dark.scss
+ ├─ _light.scss
+ ├─ _animations.scss
+ └─ theme.scss
+
+
+1️⃣ Crear el MainLayout (navbar + footer + toggle darkmode)
+2️⃣ Diseñar la UI base moderna
+3️⃣ Integrar EmailJS real
+4️⃣ Armar la página VR con A-Frame
+5️⃣ Dejar todo listo para deploy en cPanel
+
+
+npm install emailjs-com
+npm install swiper
+npm install aframe
+
