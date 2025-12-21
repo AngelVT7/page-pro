@@ -1,0 +1,76 @@
+<section *ngIf="news$ | async as news" class="news-detail">
+  <div class="container">
+
+    <h1 class="title">{{ news.title }}</h1>
+
+    <div class="meta">
+      <span>{{ news.author }}</span>
+      <span>{{ news.date | date }}</span>
+      <span class="tag">{{ news.category }}</span>
+    </div>
+
+    <!-- HERO + TEXTO -->
+    <div class="article-hero">
+
+      <!-- Imagen principal -->
+      <div class="hero-image">
+        <img [src]="news.image[0]" alt="{{ news.title }}">
+      </div>
+
+      <!-- Texto -->
+      <div class="hero-text">
+        <p *ngFor="let paragraph of news.content.split('\n\n')">
+          {{ paragraph }}
+        </p>
+      </div>
+
+    </div>
+
+    <!-- GALERÍA SECUNDARIA -->
+    <div class="image-strip" *ngIf="news.image.length > 1">
+      <img
+        *ngFor="let img of news.image.slice(1)"
+        [src]="img"
+        alt="{{ news.title }}"
+      />
+    </div>
+
+  </div>
+</section>
+
+<section class="related-news" *ngIf="related$ | async as related">
+
+  <div class="container">
+    <h2 class="section-title">Related News</h2>
+
+  <div class="related-grid">
+
+    <article
+      *ngFor="let item of related"
+      class="related-card"
+    >
+      <a [routerLink]="['/news', item.slug]">
+
+        <!-- Imagen -->
+        <div class="image">
+          <img [src]="item.image[0]" [alt]="item.title" />
+          <span class="tag">{{ item.category }}</span>
+        </div>
+
+        <!-- Contenido -->
+        <div class="content">
+          <span class="meta">
+            {{ item.date | date }}
+          </span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.excerpt }}</p>
+        </div>
+
+      </a>
+    </article>
+
+  </div>
+  </div>
+
+</section>
+

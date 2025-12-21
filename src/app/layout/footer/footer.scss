@@ -1,0 +1,142 @@
+.site-footer {
+  background: radial-gradient(
+      circle at top center,
+      rgba(255, 255, 255, 0.08),
+      transparent 55%
+    ),
+    #0b0f1a;
+  color: #c9c9c9;
+  padding: 90px 32px 30px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 64px;
+}
+
+/* BRAND */
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-logo img {
+  width: 160px;
+  margin-bottom: 28px;
+}
+
+/* SUBSCRIBE */
+.footer-subscribe {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 16px;
+
+  input {
+    flex: 1;
+    padding: 14px 16px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+  }
+
+  button {
+    padding: 0 22px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #7bc043;
+      color: #000;
+    }
+  }
+}
+
+.footer-note {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* COLUMNS */
+.footer-col h4 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 22px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 12px;
+    font-size: 14px;
+
+    a {
+      color: #c9c9c9;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #7bc043;
+      }
+    }
+  }
+}
+
+/* CONTACT */
+.footer-contact li {
+  line-height: 1.6;
+}
+
+/* SOCIAL */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+
+  a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #7bc043;
+      color: #000;
+    }
+  }
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}

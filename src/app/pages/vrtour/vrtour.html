@@ -1,0 +1,19 @@
+<a-scene embedded>
+
+  <a-assets>
+    <img
+      *ngFor="let scene of scenes"
+      [id]="'img-' + scene.id"
+      [attr.src]="scene.img"
+    />
+  </a-assets>
+
+  <a-entity camera position="0 1.6 0"></a-entity>
+
+  <a-sky
+    id="sky"
+    [attr.src]="activeImage"
+    material="shader: flat"
+  ></a-sky>
+
+</a-scene>

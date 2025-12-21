@@ -1,0 +1,64 @@
+<section class="products">
+    <div class="container">
+
+        <h1>Products</h1>
+
+        <div class="products-grid">
+            <article *ngFor="let product of products$ | async" class="product-card">
+
+                <!-- IMAGE -->
+                <div class="image">
+
+                    <img [src]="product.image" [alt]="product.name" />
+
+                    <!-- HOVER OVERLAY -->
+                    <div class="image-overlay">
+                        <button class="quick-view" (click)="openModal(product); $event.stopPropagation()">
+                            View
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- BODY → DIRECT LINK -->
+                <a class="content" [routerLink]="['/colors', product.slug]">
+                    <h3>{{ product.name }}</h3>
+                    <span class="brand">{{ product.brand }}</span>
+                    <span class="code">{{ product.code }}</span>
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PRODUCT MODAL -->
+<div class="product-modal-backdrop" *ngIf="activeProduct">
+    <div class="product-modal">
+
+        <button class="close" (click)="closeModal()">×</button>
+
+        <div class="modal-grid">
+            <img [src]="activeProduct.image" />
+
+            <div class="info">
+                <h2>{{ activeProduct.name }}</h2>
+                <span class="brand">{{ activeProduct.brand }}</span>
+
+                <ul class="specs">
+                    <li><strong>Code:</strong> {{ activeProduct.code }}</li>
+                    <li><strong>Paint Type:</strong> {{ activeProduct.paintType }}</li>
+                    <li><strong>Thickness:</strong> {{ activeProduct.skinThickness }}</li>
+                    <li><strong>Warranty:</strong> {{ activeProduct.warranty }}</li>
+                </ul>
+
+                <a class="btn-view" [routerLink]="['/colors', activeProduct.slug]" (click)="closeModal()">
+                    View full specifications
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>

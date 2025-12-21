@@ -1,0 +1,43 @@
+<nav   class="navbar"
+  [ngClass]="{
+    'navbar--transparent': isAtTop,
+    'navbar--scrolled': !isAtTop
+  }">
+    <div class="navbar__container">
+
+        <!-- Logo -->
+        <div class="navbar__logo">
+            <img src="logos/logo-dark.png" alt="Logo" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="navbar__menu">
+            <li *ngFor="let item of menu">
+                <a [routerLink]="item.route">{{ item.label }}</a>
+            </li>
+        </ul>
+
+        <!-- CTA -->
+        <button class="btn-contact">Contact</button>
+
+        <!-- Hamburger -->
+        <div class="hamburger" (click)="toggleMobile()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Mobile Overlay -->
+<div class="mobile-menu" [class.open]="isMobileOpen">
+    <ul>
+        <li *ngFor="let item of menu" (click)="closeMobile()">
+            <a [routerLink]="item.route">{{ item.label }}</a>
+        </li>
+        <li class="mobile-cta">
+            <button class="btn-contact">Contact</button>
+        </li>
+    </ul>
+</div>

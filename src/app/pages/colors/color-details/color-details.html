@@ -1,0 +1,79 @@
+<section *ngIf="product$ | async as product" class="color-detail">
+  <div class="container">
+
+    <!-- GRID PRINCIPAL -->
+    <div class="detail-grid">
+
+      <!-- IMAGEN -->
+      <div class="image-wrapper">
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+        />
+      </div>
+
+      <!-- INFO -->
+      <div class="info-wrapper">
+
+        <span class="brand">{{ product.brand }}</span>
+
+        <h1>{{ product.name }}</h1>
+
+        <span class="code">{{ product.code }}</span>
+
+        <!-- TAGS -->
+        <div class="tags">
+          <span class="tag" *ngFor="let cat of product.categories">
+            {{ cat }}
+          </span>
+        </div>
+
+        <!-- SPECS -->
+        <ul class="specs">
+          <li><strong>Paint Type:</strong> {{ product.paintType }}</li>
+          <li><strong>Skin Thickness:</strong> {{ product.skinThickness }}</li>
+          <li><strong>Width:</strong> {{ product.width }}</li>
+          <li><strong>Height:</strong> {{ product.height }}</li>
+          <li><strong>Warranty:</strong> {{ product.warranty }}</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section
+  class="related-products"
+  *ngIf="relatedProducts$ | async as related"
+>
+  <div class="container">
+
+    <h2 class="section-title">Related Colors</h2>
+
+    <div class="related-grid">
+      <article
+        class="related-card"
+        *ngFor="let item of related"
+      >
+        <a [routerLink]="['/colors', item.slug]">
+
+ showing from image to title style
+          <div class="image">
+            <img
+              [src]="item.image"
+              [alt]="item.name"
+            />
+          </div>
+
+          <div class="content">
+            <h3>{{ item.name }}</h3>
+            <span class="brand">{{ item.brand }}</span>
+          </div>
+
+        </a>
+      </article>
+    </div>
+
+  </div>
+</section>

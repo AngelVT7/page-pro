@@ -1,0 +1,48 @@
+<section class="news-list container">
+
+  <header class="news-header animate-on-scroll">
+    <h1>News & Updates</h1>
+    <p>Latest articles, updates and  news</p>
+  </header>
+
+  <div class="news-grid">
+    <ng-container *ngIf="news$ | async as news">
+      <article
+        *ngFor="let item of news | slice:0:visibleCount"
+        class="news-card animate-on-scroll"
+      >
+        <a [routerLink]="['/news', item.slug]">
+
+          <div class="image-wrapper">
+            <span class="tag">{{ item.category }}</span>
+          </div>
+
+          <div class="content">
+            <span class="meta">
+              {{ item.author }} • {{ item.date }}
+            </span>
+
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.excerpt }}</p>
+
+            <span class="read-more">
+              Read more →
+            </span>
+          </div>
+
+        </a>
+      </article>
+    </ng-container>
+  </div>
+
+  <div class="load-more" *ngIf="news$ | async as news">
+    <button
+      *ngIf="visibleCount < news.length"
+      (click)="loadMore()"
+      class="btn-load"
+    >
+      Load more
+    </button>
+  </div>
+
+</section>
