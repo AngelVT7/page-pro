@@ -6,8 +6,6 @@ import { switchMap, map } from 'rxjs/operators';
 import { Product } from '../../../core/models/product.model';
 import { CommonModule } from '@angular/common';
 
-
-
 @Component({
   standalone: true,
   selector: 'app-color-details',
@@ -18,22 +16,15 @@ import { CommonModule } from '@angular/common';
 export class ColorDetails {
   product$!: Observable<Product | null>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private productsService: ProductsService
-  ) {}
+  constructor(private route: ActivatedRoute, private productsService: ProductsService) {}
 
   relatedProducts$!: Observable<Product[]>;
 
   ngOnInit() {
-    this.product$ = this.route.paramMap.pipe(
-      map(params => params.get('slug')),
-      switchMap(slug =>
-        this.productsService.getBySlug(slug!)
-      )
-    );
+    const slug$ = this.route.paramMap.pipe(map((params) => params.get('slug')));
 
-    this.relatedProducts$ = this.productsService.getRandom(4);
+    this.product$ = slug$.pipe(switchMap((slug) => this.productsService.getBySlug(slug!)));
+
+    this.relatedProducts$ = slug$.pipe(switchMap(() => this.productsService.getRandom(4)));
   }
-  
 }

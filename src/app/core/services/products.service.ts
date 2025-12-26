@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   filterByColor(tag: string): Observable<Product[]> {
-    return of(PRODUCTS_DATA.filter(p => p.tags.includes(tag)));
+    return of(PRODUCTS_DATA.filter(p => p.colorTag.includes(tag)));
   }
 
   getRandom(limit = 4): Observable<Product[]> {

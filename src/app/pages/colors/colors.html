@@ -1,38 +1,85 @@
 <section class="products">
-    <div class="container">
+  <div class="container products-layout">
 
-        <h1>Products</h1>
+    <!-- SIDEBAR -->
+    <aside class="filters">
 
-        <div class="products-grid">
-            <article *ngFor="let product of products$ | async" class="product-card">
+      <h4>Filter</h4>
 
-                <!-- IMAGE -->
-                <div class="image">
-
-                    <img [src]="product.image" [alt]="product.name" />
-
-                    <!-- HOVER OVERLAY -->
-                    <div class="image-overlay">
-                        <button class="quick-view" (click)="openModal(product); $event.stopPropagation()">
-                            View
-                        </button>
-                    </div>
-
-                </div>
-
-                <!-- BODY → DIRECT LINK -->
-                <a class="content" [routerLink]="['/colors', product.slug]">
-                    <h3>{{ product.name }}</h3>
-                    <span class="brand">{{ product.brand }}</span>
-                    <span class="code">{{ product.code }}</span>
-                </a>
-
-            </article>
-
+      <!-- BRAND FILTER -->
+      <div class="filter-group">
+        <h5>Brands</h5>
+        <div class="filter-buttons">
+          <button
+            *ngFor="let brand of brands"
+            (click)="filterByBrand(brand)"
+            [class.active]="selectedBrand === brand"
+          >
+            {{ brand }}
+          </button>
         </div>
+      </div>
+
+      <!-- COLOR FILTER -->
+      <div class="filter-group">
+        <h5>Colors</h5>
+        <div class="color-grid">
+          <button
+            *ngFor="let color of colors"
+            (click)="filterByColor(color.tag)"
+            [class.active]="selectedColor === color.tag"
+          >
+            <img [src]="color.image" [alt]="color.name" />
+            <span>{{ color.name }}</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="clear" (click)="clearFilters()">Clear filters</button>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <div class="products-area">
+
+      <div class="products-grid">
+        <article
+          *ngFor="let product of pagedProducts"
+          class="product-card"
+        >
+          <!-- IMAGE -->
+          <div class="image">
+            <img [src]="product.image" />
+            <div class="image-overlay">
+              <button class="quick-view" (click)="openModal(product); $event.stopPropagation()">
+                View
+              </button>
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <a class="content" [routerLink]="['/colors', product.slug]">
+            <h3>{{ product.name }}</h3>
+            <span class="brand">{{ product.brand }}</span>
+            <span class="code">{{ product.code }}</span>
+          </a>
+        </article>
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <button
+          *ngFor="let page of pages"
+          (click)="goToPage(page)"
+          [class.active]="page === currentPage"
+        >
+          {{ page }}
+        </button>
+      </div>
 
     </div>
+  </div>
 </section>
+
 
 <!-- PRODUCT MODAL -->
 <div class="product-modal-backdrop" *ngIf="activeProduct">

@@ -212,6 +212,7 @@
             </div>
             
             <div class="tp-slider-arrow-4">
+
             </div>
 
             <div class="tp-slider-nav-wrapper d-none d-xl-block">
@@ -264,7 +265,6 @@
             </div>
          </section>
 
-
 <!-- CARDS -->
 <section class="cards-section">
   <div class="cards-container">
@@ -304,23 +304,40 @@
     </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features">
-    <div class="container">
-        <div class="feature">
-            <h3>High Quality</h3>
-            <p>Products manufactured under strict quality standards.</p>
+<!-- NEWS -->
+<section class="related-news" *ngIf="related$ | async as related">
+
+  <div class="container">
+    <h2 class="section-title">Most recent news</h2>
+
+  <div class="related-grid">
+
+    <article
+      *ngFor="let item of related"
+      class="related-card"
+    >
+      <a [routerLink]="['/news', item.slug]">
+
+        <!-- Imagen -->
+        <div class="image">
+          <img [src]="item.image[0]" [alt]="item.title" />
+          <span class="tag">{{ item.category }}</span>
         </div>
 
-        <div class="feature">
-            <h3>Technical Expertise</h3>
-            <p>Professional support and detailed technical specifications.</p>
+        <!-- Contenido -->
+        <div class="content">
+          <span class="meta">
+            {{ item.date | date }}
+          </span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.excerpt }}</p>
         </div>
 
-        <div class="feature">
-            <h3>Global Reach</h3>
-            <p>Distribution network and representatives worldwide.</p>
-        </div>
-    </div>
+      </a>
+    </article>
+
+  </div>
+  </div>
+
 </section>
 

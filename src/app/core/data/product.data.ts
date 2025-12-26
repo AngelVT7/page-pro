@@ -15,7 +15,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '10.17',
 
     categories: ['ACM Energy Set', 'Alucomex'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Energy Set'
   },
 
@@ -33,7 +33,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8 y 10',
 
     categories: ['ACM Architectural', 'ACM Signage Set', 'Alusign'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural, ACM Signage Set'
   },
 
@@ -51,7 +51,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -69,7 +69,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: ['ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -87,7 +87,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '10.17',
 
     categories: ['ACM Energy Set', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural',
   },
 
@@ -104,7 +104,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -122,7 +122,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -140,7 +140,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -158,7 +158,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -176,7 +176,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -194,7 +194,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -212,7 +212,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural',
   },
 
@@ -230,7 +230,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -248,7 +248,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -266,7 +266,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: [' ACM Architectural', 'Alucomex'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Architectural'
   },
 
@@ -284,7 +284,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '16.33',
 
     categories: ['ACM Colorful Set', 'Alucomex'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Colorful Set'
   },
 
@@ -302,7 +302,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set, Alucargo', 'Alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -320,7 +320,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -338,7 +338,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -356,7 +356,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -374,7 +374,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -392,7 +392,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -410,7 +410,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -428,7 +428,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -446,7 +446,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -464,7 +464,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Mobility Set', 'Alucargo'],
-    tags: ['SD'],
+    colorTag: ['SD'],
     colorHex: 'ACM Mobility Set'
   },
 
@@ -481,7 +481,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Signage Set', 'Alusign'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Signage Set'
   },
 
@@ -499,7 +499,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Signage Set', 'Alusign'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Signage Set'
   },
 
@@ -517,7 +517,7 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Signage Set', 'Alusign'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Signage Set'
   },
 
@@ -535,8 +535,97 @@ export const PRODUCTS_DATA: Product[] = [
     height: '8',
 
     categories: ['ACM Signage Set', 'Alusign'],
-    tags: ['NS'],
+    colorTag: ['NS'],
     colorHex: 'ACM Signage Set'
   },
 
+  {
+    slug: 'neu-white-nuw–ns',
+    name: 'Neu White NUW – NS',
+    brand: 'Alusign',
+    image: 'products/Signage-Set-Neu-White-NUW.jpg',
+    warranty: '5 Years Warranty',
+    code: 'NUW',
+
+    paintType: 'PE',
+    skinThickness: '0.20 / 0.15  mm',
+    width: '4',
+    height: '8',
+
+    categories: ['ACM Signage Set', 'Alusign'],
+    colorTag: ['NS'],
+    colorHex: 'ACM Signage Set'
+  },
+  {
+    slug: 'brushed-bsh-sd',
+    name: 'Brushed BSH – SD',
+    brand: 'Alusign',
+    image: 'products/Signage-Set-Brushed-BSH.jpg',
+    warranty: '5 Years Warranty',
+    code: 'BSH, Ral: Ral9022',
+
+    paintType: 'PE, Pantone: 877 C',
+    skinThickness: '0.20 / 0.15  mm',
+    width: '4',
+    height: '8',
+
+    categories: ['ACM Signage Set', 'Alusign'],
+    colorTag: ['SD'],
+    colorHex: 'ACM Signage Set'
+  },
+  {
+    slug: 'natural-marble-nmb',
+    name: 'Natural Marble NMB – NS',
+    brand: 'Alucomex',
+    image: 'products/Natural-Marble-NMB-1.jpg',
+    warranty: '5 Years Warranty',
+    code: 'NMB, Ral: Textura',
+
+    paintType: 'PVDF, Pantone: Textura',
+    skinThickness: '30  mm',
+    width: '4',
+    height: '10',
+
+    categories: [' ACM Stone Set', 'Alucomex'],
+    colorTag: ['NS'],
+    colorHex: 'ACM Stone Set'
+  },
+  {
+    slug: '',
+    name: '',
+    brand: '',
+    image: 'products/.jpg',
+    warranty: '5 Years Warranty',
+    code: '',
+
+    paintType: 'PE',
+    skinThickness: '0.20 / 0.15  mm',
+    width: '4',
+    height: '8',
+
+    categories: ['ACM Signage Set', 'Alusign'],
+    colorTag: ['NS'],
+    colorHex: 'ACM Signage Set'
+  },
+
+
+
+
+    {
+    slug: '',
+    name: '',
+    brand: '',
+    image: 'products/.jpg',
+    warranty: '5 Years Warranty',
+    code: '',
+
+    paintType: 'PE',
+    skinThickness: '0.20 / 0.15  mm',
+    width: '4',
+    height: '8',
+
+    categories: ['ACM Signage Set', 'Alusign'],
+    colorTag: ['NS'],
+    colorHex: 'ACM Signage Set'
+  },
 ];

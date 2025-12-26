@@ -1,19 +1,99 @@
-<a-scene embedded>
+<!-- VR WARNING MODAL -->
+<div class="vr-warning" *ngIf="!accepted">
+  <div class="vr-warning__content">
 
-  <a-assets>
-    <img
+    <img src="logos/logo-light.png" class="logo" />
+
+    <p>
+      The following page is a Virtual Reality presentation for our
+      <strong>Alucomex</strong> brand in Spanish only.
+      <br /><br />
+      If you wish to continue press <strong>OK</strong>.
+      Otherwise press <strong>GO BACK</strong> to return to our English Web Page.
+    </p>
+
+    <div class="actions">
+      <button class="btn secondary" (click)="goBack()">GO BACK</button>
+      <button class="btn primary" (click)="acceptVr()">OK</button>
+    </div>
+
+  </div>
+</div>
+<div class="vr-wrapper">
+
+  <!-- VR -->
+  <a-scene embedded vr-mode-ui="enabled: true" device-orientation-permission-ui="enabled: true">
+
+    <a-assets>
+      <img id="lobby" src="assets/vr/allphoto-bangkok-GfXqtWmiuDI-unsplash.jpg">
+      <img id="offices" src="assets/vr/gabor-papp-i4bxGPMwfPI-unsplash.jpg">
+      <img id="Museum" src="assets/vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg">
+      <img id="auditorium" src="assets/vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg">
+      <img id="gas station" src="assets/vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg">
+      <img id="agency" src="assets/vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg">
+      <img id="bank" src="assets/vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg">
+      <img id="Hotel" src="assets/vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg">
+    </a-assets>
+
+    <!-- Escena activa -->
+    <a-sky
+      id="sky"
+      [attr.src]="'#' + currentScene"
+      material="shader: flat; opacity: 1"
+    ></a-sky>
+
+    <!-- Cámara -->
+    <a-entity
+      camera
+      look-controls="reverseMouseDrag: false"
+      position="0 1.6 0"
+    ></a-entity>
+
+  </a-scene>
+
+  <!-- MENÚ FLOTANTE -->
+  <div class="vr-menu">
+    <img src="logos/AlucomexWhite.png" width="80px" alt="">
+    <button
       *ngFor="let scene of scenes"
-      [id]="'img-' + scene.id"
-      [attr.src]="scene.img"
-    />
-  </a-assets>
+      (click)="changeScene(scene.id)"
+      [class.active]="scene.id === currentScene"
+    >
+      {{ scene.name }}
+    </button>
+  </div>
 
-  <a-entity camera position="0 1.6 0"></a-entity>
+  <!-- MENÚ FLOTANTE 2-->
+    <div class="vr-side-menu">
 
-  <a-sky
-    id="sky"
-    [attr.src]="activeImage"
-    material="shader: flat"
-  ></a-sky>
+      <a href="https://facebook.com" target="_blank" class="icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
 
-</a-scene>
+      <a href="https://instagram.com" target="_blank" class="icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://youtube.com" target="_blank" class="icon">
+        <i class="fab fa-youtube"></i>
+      </a>
+
+      <button class="icon play" (click)="openVideo()">
+        ▶
+      </button>
+
+  </div>
+<!-- Modal video-->
+  <div class="video-modal" *ngIf="showVideo">
+    <div class="video-box">
+      <button class="close" (click)="closeVideo()">×</button>
+      <iframe
+        src="https://www.youtube.com/embed/464p9WjbIbc"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="Alucomex ACP">
+      </iframe>
+    </div>
+  </div>
+</div>

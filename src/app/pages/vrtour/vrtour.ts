@@ -11,22 +11,64 @@ import { RouterModule } from '@angular/router';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Vrtour {
-
+  accepted = false;
   scenes = [
-    { id: 'lobby', name: 'Lobby', img: 'vr/allphoto-bangkok-GfXqtWmiuDI-unsplash.jpg' },
-    { id: 'office', name: 'Office', img: 'vr/jeanne-rose-gomez-Mi2r_KjkW8o-unsplash.jpg' },
-    //{ id: 'meeting', name: 'Meeting Room', img: 'vr/meeting.jpg' },
+    { id: 'lobby', name: 'Lobby' },
+    { id: 'offices', name: 'Offices' },
+    { id: 'Museum', name: 'Museum' },
+    { id: 'auditorium', name: 'auditorium' },
+    { id: 'gas station', name: 'gas station' },
+    { id: 'agency', name: 'agency' },
+    { id: 'bank', name: 'bank' },
+    { id: 'Hotel', name: 'Hotel' },
   ];
 
   currentScene = 'lobby';
-  activeImage = this.scenes[0].img;
 
-  goTo(id: string) {
-    const target = this.scenes.find(s => s.id === id);
-    if (!target) return;
-
-    this.currentScene = id;
-    this.activeImage = target.img;
+    acceptVr() {
+    this.accepted = true;
   }
 
+  goBack() {
+    history.back(); // o router.navigate(['/'])
+  }
+
+  changeScene(sceneId: string) {
+  if (sceneId === this.currentScene) return;
+
+  const sky = document.querySelector('#sky') as any;
+  if (!sky) return;
+
+  // Fade out
+    sky.setAttribute('animation__fadeout', {
+      property: 'material.opacity',
+      from: 1,
+      to: 0,
+      dur: 500,
+      easing: 'easeInQuad'
+    });
+
+    setTimeout(() => {
+      this.currentScene = sceneId;
+
+      // Fade in
+      sky.setAttribute('animation__fadein', {
+        property: 'material.opacity',
+        from: 0,
+        to: 1,
+        dur: 700,
+        easing: 'easeOutQuad'
+      });
+    }, 500);
+  }
+
+showVideo = false;
+
+openVideo() {
+  this.showVideo = true;
+}
+
+closeVideo() {
+  this.showVideo = false;
+}
 }

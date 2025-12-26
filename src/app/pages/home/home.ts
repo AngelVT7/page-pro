@@ -1,9 +1,10 @@
-import { Component, OnDestroy  } from '@angular/core';
+import { Component, inject, OnDestroy  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
-import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
-import Swiper from 'swiper';
+import { map, Observable } from 'rxjs';
+import { News } from '../../core/models/news.model';
+import { NewsService } from '../../core/services/news.service';
 
 declare const $: any;
 
@@ -17,6 +18,11 @@ declare const $: any;
 export class Home implements AfterViewInit, OnDestroy {
   activeSlide = 0;
   intervalId: any;
+  related$!: Observable<News[]>;
+  private newsService = inject(NewsService);
+  private route = inject(ActivatedRoute);
+  news$!: Observable<News | null>;
+
 
   
 
@@ -109,8 +115,18 @@ export class Home implements AfterViewInit, OnDestroy {
   ];
 
     ngOnInit() {
+    const slug = this.route.snapshot.paramMap.get('slug')!;
+    this.news$ = this.newsService.getBySlug(slug);
     this.startAutoSlide();
     this.initScrollAnimations();
+        this.related$ = this.newsService.getAll().pipe(
+          map(news =>
+            news
+              .filter(n => n.slug !== slug)
+              .sort(() => 0.5 - Math.random())
+              .slice(0, 3)
+          )
+        );
   }
 
   startAutoSlide() {

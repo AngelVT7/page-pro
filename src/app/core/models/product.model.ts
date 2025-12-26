@@ -1,5 +1,6 @@
 export interface Product {
-  id?: string;
+[x: string]: string | string[] | null;
+
 
   // Básico
   slug: string;           // "aluminum-silver-mirror"
@@ -19,7 +20,7 @@ export interface Product {
 
   // Organización
   categories: string[];   // ["Mirror", "Exterior"]
-  tags: string[];         // ["silver", "reflective", "premium"]
+  colorTag: string[];         // ["silver", "reflective", "premium"]
 
   // Para filtros visuales
   colorHex: string;

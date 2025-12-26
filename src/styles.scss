@@ -1,10 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+html, body{
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
-  margin: 0;
+    background:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,0.015) 0%,
+      rgba(0,0,0,0.07) 40%,
+      rgba(0,0,0,0.015) 100%
+    ),
+    #ffffff;
 
 }
+/* ===============================
+   NAVBAR MENU HOVER (GLOBAL FIX)
+================================ */
+
+.site-header .navbar__menu > li > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;               /* altura fija */
+  padding: 0 14px;            /* padding horizontal solamente */
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+
+  border-radius: 8px;
+  border: 1px solid transparent; /* SIEMPRE existe */
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* HOVER */
+.site-header .navbar__menu > li > a:hover {
+  background-color: #7bc043;
+  border-color: #7bc043;
+  color: #fff;
+}
+.navbar__menu > li > a:hover {
+  background-color: #7bc043;
+  border-color: #7bc043;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(123, 192, 67, 0.35);
+  transform: translateY(-1px);
+}
+
+
 
 .tp-slider-active-4 {
   background: #6b6c6d !important; // o el color que quieras
@@ -25,10 +75,13 @@ body{
 }
 
 .site-header:not(.site-header--scrolled) .navbar {
-  background: transparent;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  background: rgba(15, 15, 15, 0.301); /* gris claro elegante */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-  .navbar__menu a { color: #fff; }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  .navbar__menu a { color: #1a1a1a; }
   .hamburger span { background: #fff; }
 }
 
