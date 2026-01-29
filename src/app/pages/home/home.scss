@@ -1,4 +1,4 @@
-/* Variables rápidas (luego las movemos a global) */
+/* Variables */
 $primary: #7bc043;
 $dark: #0b0f1a;
 $gray: #f5f5f5;
@@ -9,11 +9,10 @@ $gray: #f5f5f5;
 }
 
 .hero-slider {
-  margin-top: 60px;
+
   position: relative;
   width: 100%;
 
-  /* 🔑 La clave */
   aspect-ratio: 1920 / 800;
 
   max-height: calc(100vh - var(--navbar-h));
@@ -24,7 +23,7 @@ $gray: #f5f5f5;
   position: absolute;
   inset: 0;
 
-  background-size: contain;   /* 🔑 NO cover */
+  background-size: contain;   
   background-position: center;
   background-repeat: no-repeat;
   background-color: #000;     /* o gradiente */
@@ -84,7 +83,7 @@ $gray: #f5f5f5;
 
 /* BOTONES */
 .hero-controls .nav {
-  position: static; /* 🔑 ya no absolute */
+  position: static; 
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -716,7 +715,7 @@ $gray: #f5f5f5;
 .social-updates-section {
   padding: 72px 24px;
   background: #f7f9fb;
-  overflow-x: hidden; /* 🔒 jamás scroll horizontal */
+  overflow-x: hidden; 
 }
 
 .social-updates-section h2 {
@@ -896,6 +895,6 @@ $gray: #f5f5f5;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 28px;
-    justify-content: center; // 🔥 clave cuando sobran espacios
+    justify-content: center; 
   }
 }
