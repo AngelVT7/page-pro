@@ -16,6 +16,7 @@
                 <a
                     [routerLink]="item.route"
                     routerLinkActive="active-link"
+                    [routerLinkActiveOptions]="{ exact: item.route === '/' }"
                     >
                     {{ item.label }}
                 </a>
@@ -23,7 +24,12 @@
         </ul>
 
         <!-- CTA -->
-        <button class="btn-contact">Contact</button>
+        <button
+            class="btn-contact"
+            [routerLink]="['/contact']"
+            >
+            Contact
+        </button>
 
         <!-- Hamburger -->
         <div class="hamburger" (click)="toggleMobile()">
@@ -39,10 +45,23 @@
 <div class="mobile-menu" [class.open]="isMobileOpen">
     <ul>
         <li *ngFor="let item of menu" (click)="closeMobile()">
-            <a [routerLink]="item.route">{{ item.label }}</a>
+            <a
+                [routerLink]="item.route"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+                (click)="closeMobile()"
+                >
+                {{ item.label }}
+            </a>
         </li>
         <li class="mobile-cta">
-            <button class="btn-contact">Contact</button>
+            <button
+                class="btn-contact"
+                [routerLink]="['/contact']"
+                (click)="closeMobile()"
+                >
+                Contact
+            </button>
         </li>
     </ul>
 </div>

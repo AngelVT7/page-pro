@@ -19,21 +19,36 @@
           </button>
         </div>
       </div>
-
       <!-- COLOR FILTER -->
-      <div class="filter-group">
-        <h5>Colors</h5>
-        <div class="color-grid">
-          <button
-            *ngFor="let color of colors"
-            (click)="filterByColor(color.tag)"
-            [class.active]="selectedColor === color.tag"
-          >
-            <img [src]="color.image" [alt]="color.name" />
-            <span>{{ color.name }}</span>
-          </button>
-        </div>
-      </div>
+<div class="filter-group">
+  <h5>Order</h5>
+
+  <div class="filter-buttons">
+    <button
+      *ngFor="let color of colorTags"
+      (click)="filterByColorTag(color)"
+      [class.active]="selectedColorTag === color"
+    >
+      {{ color }}
+    </button>
+  </div>
+</div>
+<!-- CATEGORY FILTER 
+<section class="category-filter">
+  <div class="category-grid">
+
+    <button
+      class="category-card"
+      *ngFor="let cat of categories"
+      (click)="filterByCategory(cat.key)"
+      [class.active]="selectedCategory === cat.key"
+    >
+      <img [src]="cat.image" [alt]="cat.label" />
+      <span>{{ cat.label }}</span>
+    </button>
+
+  </div>
+</section>-->
 
       <button class="clear" (click)="clearFilters()">Clear filters</button>
     </aside>

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProductsService } from '../../core/services/products.service';
-import { Product } from '../../core/models/product.model';
+import { CategoryFilter, Product } from '../../core/models/product.model';
 
 @Component({
   standalone: true,
@@ -12,6 +12,82 @@ import { Product } from '../../core/models/product.model';
   styleUrl: './colors.scss',
 })
 export class Colors {
+
+  selectedCategory: string | null = null;
+selectedColorTag: string | null = null;
+
+  categories: CategoryFilter[] = [
+  {
+    key: 'ACM Architectural Set',
+    label: 'Architectural Set',
+    image: 'assets/categories/ACM-Architectural-Set-150x150.png',
+  },
+  {
+    key: 'ACM City Set',
+    label: 'City Set',
+    image: 'assets/categories/ACM-City-Set-150x150.png',
+  },
+  {
+    key: 'ACM Colorful Set',
+    label: 'Colorful Set',
+    image: 'assets/categories/ACM-Colorful-Set-150x150.png',
+  },
+  {
+    key: 'ACM Energy Set',
+    label: 'Energy Set',
+    image: 'assets/categories/ACM-Energy-Set-150x150.png',
+  },
+  {
+    key: 'ACM Industrial Set',
+    label: 'Industrial Set',
+    image: 'assets/categories/ACM-Industrial-Set-150x150.png',
+  },
+  {
+    key: 'ACM Inspiration Set',
+    label: 'Inspiration Set',
+    image: 'assets/categories/ACM-Inspiration-set-150x150.png',
+  },
+  {
+    key: 'ACM Mirror Set',
+    label: 'Mirror Set',
+    image: 'assets/categories/ACM-Mirror-Set-150x150.png',
+  },
+  {
+    key: 'ACM Mobility Set',
+    label: 'Mobility Set',
+    image: 'assets/categories/ACM-Mobility-Set-150x150.png',
+  },
+  {
+    key: 'ACM Signage Set',
+    label: 'Signage Set',
+    image: 'assets/categories/ACM-Signage-Set-150x150.png',
+  },
+  {
+    key: 'ACM Stone Set',
+    label: 'Stone Set',
+    image: 'assets/categories/ACM-Stone-Set-150x150.png',
+  },
+  {
+    key: 'ACM Woods Set',
+    label: 'Woods Set',
+    image: 'assets/categories/ACM-Woods-Set-150x150.png',
+  },
+];
+
+filterByCategory(categoryKey: string) {
+  this.selectedCategory =
+    this.selectedCategory === categoryKey ? null : categoryKey;
+
+  this.currentPage = 1;
+  this.applyFilters();
+}
+filterByColorTag(color: string) {
+  this.selectedColorTag =
+    this.selectedColorTag === color ? null : color;
+
+  this.currentPage = 1;
+  this.applyFilters();
+}
 
   // =====================
   // SERVICES
@@ -33,6 +109,7 @@ export class Colors {
   selectedColor: string | null = null;
 
   brands = ['Alucargo', 'Alucomex', 'Alusign', 'Alutec'];
+  colorTags= ['SD', 'NS']
 
   colorsF = [
     { tag: 'architectural', name: 'Architectural', image: '/assets/colors/arch.jpg' },
@@ -100,12 +177,13 @@ private buildColorFilters(products: Product[]) {
     this.applyFilters();
   }
 
-  clearFilters() {
-    this.selectedBrand = null;
-    this.selectedColor = null;
-    this.currentPage = 1;
-    this.applyFilters();
-  }
+clearFilters() {
+  this.selectedBrand = null;
+  this.selectedCategory = null;
+  this.selectedColorTag = null;
+  this.currentPage = 1;
+  this.applyFilters();
+}
 
 private applyFilters() {
   let filtered = [...this.products];
@@ -116,14 +194,21 @@ private applyFilters() {
     );
   }
 
-  if (this.selectedColor) {
+if (this.selectedColorTag) {
+  filtered = filtered.filter(
+    p => p.colorTag?.includes(this.selectedColorTag!)
+  );
+}
+
+  if (this.selectedCategory) {
     filtered = filtered.filter(
-      p => (p['colorTag'] as string[])?.includes(this.selectedColor!)
+      p => p.categories?.includes(this.selectedCategory!)
     );
   }
 
   this.updatePagination(filtered);
 }
+
 
 
   // =====================

@@ -35,6 +35,7 @@
                   }
             ],
             "styles": [
+              "node_modules/leaflet/dist/leaflet.css",
               "node_modules/swiper/swiper-bundle.min.css",
               "src/styles.scss",
               "public/css/bootstrap.css",

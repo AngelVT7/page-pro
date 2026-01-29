@@ -26,3 +26,9 @@ export interface Product {
   colorHex: string;
   //colorHex?: string;      // "#C9CCD6" (opcional)
 }
+
+export interface CategoryFilter {
+  key: string;      // 'ACM Energy Set'
+  label: string;    // 'ACM Energy'
+  image: string;    // path imagen
+}

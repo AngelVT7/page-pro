@@ -14,6 +14,11 @@
         <a [routerLink]="['/news', item.slug]">
 
           <div class="image-wrapper">
+            <img
+              [src]="item.image?.[0]"
+              [alt]="item.title"
+              loading="lazy"
+            />
             <span class="tag">{{ item.category }}</span>
           </div>
 

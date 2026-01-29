@@ -1,10 +1,12 @@
-import { Component, inject, OnDestroy  } from '@angular/core';
+import { Component, inject, OnDestroy, signal, OnInit, Renderer2, DOCUMENT, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { News } from '../../core/models/news.model';
 import { NewsService } from '../../core/services/news.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 
 declare const $: any;
 
@@ -15,109 +17,69 @@ declare const $: any;
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home implements AfterViewInit, OnDestroy {
+export class Home implements AfterViewInit, OnDestroy, OnInit {
   activeSlide = 0;
-  intervalId: any;
   related$!: Observable<News[]>;
   private newsService = inject(NewsService);
   private route = inject(ActivatedRoute);
   news$!: Observable<News | null>;
 
+  slides = signal<HTMLElement[]>([]);
+  current = signal(0);
 
-  
 
-  ngAfterViewInit(): void {
-    // Espera a que Angular pinte el HTML
-    queueMicrotask(() => this.initHeroSlider());
+  instagramEmbed!: SafeHtml;
+  linkedinEmbed!: SafeHtml;
+
+private scriptLoaded = false;
+
+  constructor(
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
+
+ngAfterViewInit() {
+
+  this.startAutoPlay();
+
+  if (this.scriptLoaded) return;
+
+  const instagramScript = this.renderer.createElement('script');
+  instagramScript.src =
+    'https://widgets.sociablekit.com/instagram-hashtag-feed/widget.js';
+  instagramScript.defer = true;
+
+  const linkedinScript = this.renderer.createElement('script');
+  linkedinScript.src =
+    'https://widgets.sociablekit.com/linkedin-profile-posts/widget.js';
+  linkedinScript.defer = true;
+
+  this.renderer.appendChild(this.document.body, instagramScript);
+  this.renderer.appendChild(this.document.body, linkedinScript);
+
+  this.scriptLoaded = true;
+
+
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+    console.log('Resize forzado para SociableKIT');
+  }, 500);
+}
+
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
   }
 
-  ngOnDestroy(): void {
-    // Evita dobles inicializaciones al navegar
-    try {
-      if ($('.tp-slider-active-4')?.hasClass('slick-initialized')) {
-        $('.tp-slider-active-4').slick('unslick');
-      }
-      if ($('.tp-slider-nav-active')?.hasClass('slick-initialized')) {
-        $('.tp-slider-nav-active').slick('unslick');
-      }
-    } catch {}
+
+  goTo(index: number) {
+    this.current.set(index);
   }
 
-  private initHeroSlider(): void {
-    const $main = $('.tp-slider-active-4');
-    const $nav  = $('.tp-slider-nav-active');
-    const $arrows = $('.tp-slider-arrow-4');
-
-    if (!$main.length) return;
-
-    // Si ya estaba inicializado, lo reseteamos
-    if ($main.hasClass('slick-initialized')) $main.slick('unslick');
-    if ($nav.hasClass('slick-initialized')) $nav.slick('unslick');
-
-    $main.slick({
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-
-  // ESTO ES CLAVE
-  fade: true,
-  cssEase: 'linear',
-
-  autoplay: true,
-  autoplaySpeed: 5000,
-
-  asNavFor: '.tp-slider-nav-active',
-  appendArrows: $arrows,
-
-  prevArrow: `
-    <button type="button" class="tp-slider-3-button-prev" aria-label="Anterior">
-      <span class="tp-arrow-icon">‹</span>
-    </button>`,
-
-  nextArrow: `
-    <button type="button" class="tp-slider-3-button-next" aria-label="Siguiente">
-      <span class="tp-arrow-icon">›</span>
-    </button>`
-});
-
-
-    if ($nav.length) {
-      $nav.slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        vertical: true,
-        arrows: false,
-        dots: false,
-        focusOnSelect: true,
-        asNavFor: '.tp-slider-active-4',
-      });
-    }
-  }
-
-  slides = [
-    {
-      title: 'Innovative Industrial Solutions',
-      subtitle: 'Engineering excellence for demanding industries',
-      image: 'slider/slide1.jpg',
-    },
-    {
-      title: 'Precision & Quality',
-      subtitle: 'Designed to meet the highest standards',
-      image: 'sliders/slider1.jpg',
-    },
-    {
-      title: 'Global Projects',
-      subtitle: 'Trusted by partners worldwide',
-      image: 'slider/slide1.jpg',
-    },
-  ];
 
     ngOnInit() {
     const slug = this.route.snapshot.paramMap.get('slug')!;
     this.news$ = this.newsService.getBySlug(slug);
-    this.startAutoSlide();
     this.initScrollAnimations();
         this.related$ = this.newsService.getAll().pipe(
           map(news =>
@@ -129,26 +91,7 @@ export class Home implements AfterViewInit, OnDestroy {
         );
   }
 
-  startAutoSlide() {
-    this.intervalId = setInterval(() => {
-      this.next();
-    }, 6000);
-  }
 
-  next() {
-    this.activeSlide =
-      (this.activeSlide + 1) % this.slides.length;
-  }
-
-  prev() {
-    this.activeSlide =
-      (this.activeSlide - 1 + this.slides.length) %
-      this.slides.length;
-  }
-
-  goTo(index: number) {
-    this.activeSlide = index;
-  }
 
   // ===== ON SCROLL ANIMATION =====
   initScrollAnimations() {
@@ -170,30 +113,62 @@ export class Home implements AfterViewInit, OnDestroy {
 
   cards = [
     {
-      icon: 'cards/Card1.png',
+      icon: 'cards/ICONOS-01.jpg',
       title: 'Greater Resistant to Fire',
       text: 'ASTM E84 & NFPA 285 Compliant.',
     },
     {
-      icon: 'cards/Card2.png',
+      icon: 'cards/ICONOS-02.jpg',
       title: 'Long Lasting Colors',
       text: '45 Beautiful colors for you.',
     },
     {
-      icon: 'cards/Card3.png',
+      icon: 'cards/ICONOS-03.jpg',
       title: 'Dust Resistant',
       text: 'Transparent coating against dust.',
     },
     {
-      icon: 'cards/Card4.png',
+      icon: 'cards/ICONOS-04.jpg',
       title: 'Strong & Flexible',
       text: 'Excelent torsion and flexion.',
     },
     {
-      icon: 'cards/Card5.png',
+      icon: 'cards/ICONOS-05.jpg',
       title: 'Wheater Resistant',
       text: 'High resistance agains the elements.',
     },
   ];
+  slideImages = [
+  'assets/slider/slide1.webp',
+  'assets/slider/slide2.webp',
+  'assets/slider/slide3.webp',
+  'assets/slider/slide4.webp',
+];
 
+intervalId!: number;
+
+startAutoPlay() {
+  this.stopAutoPlay();
+  this.intervalId = window.setInterval(() => {
+    this.next();
+  }, 10000);
+}
+
+stopAutoPlay() {
+  if (this.intervalId) {
+    clearInterval(this.intervalId);
+  }
+}
+
+next() {
+  this.current.set(
+    (this.current() + 1) % this.slideImages.length
+  );
+}
+
+prev() {
+  this.current.set(
+    (this.current() - 1 + this.slideImages.length) % this.slideImages.length
+  );
+}
 }

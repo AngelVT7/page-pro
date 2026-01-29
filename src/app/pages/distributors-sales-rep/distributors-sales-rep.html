@@ -1,1 +1,109 @@
-<p>distributors-sales-rep works!</p>
+<section>
+    <div class="container">
+        <h1>Meet our sales team</h1>
+        <h3>Alutec</h3>
+        <div class="card-sales">
+            <img src="contenido/User-Profile-PNG.png" alt="">
+            <strong><p>Tom Martinelli</p></strong>
+            <p>Master Sales Reps</p>
+            <p>SALES REPS</p>
+            <a href="">(303) 550-5654</a>
+            <a href="">Tom@theflatironsgroup.com</a>
+        </div>
+        <h1>We are pleased to partner with UFP Factory-Built as the exclusive distributor of Alutec panels for the RV industry, making our products available nationwide.</h1>
+        <h3>Alucargo</h3>
+        <div class="sales-grid">
+            <div class="card-sales">
+                <img src="contenido/User-Profile-PNG.png" alt="">
+                <strong><p>Russ Shaw</p></strong>
+                <p>Southeast</p>
+                <a href="">863 594 1899</a>
+                <a href="">rshaw@ufpi.com</a>
+            </div>
+
+            <div class="card-sales">
+                <img src="contenido/User-Profile-PNG.png" alt="">
+                <strong><p>Jeff Graham</p></strong>
+                <p>Northwest</p>
+                <a href="">406 885 0509</a>
+                <a href="">jeff.graham@ufpi.com</a>
+            </div>
+
+            <div class="card-sales">
+                <img src="contenido/User-Profile-PNG.png" alt="">
+                <strong><p>Mark Bolen</p></strong>
+                <p>Midwest</p>
+                <a href="">817 232 2233</a>
+                <a href="">mbolen@ufpi.com</a>
+            </div>
+
+            <div class="card-sales">
+                <img src="contenido/User-Profile-PNG.png" alt="">
+                <strong><p>Mike Sauserman</p></strong>
+                <p>Northeast</p>
+                <a href="">574 277 7670</a>
+                <a href="">msauserman@ufpi.com</a>
+            </div>
+        </div>
+        <h3>Alusign</h3>
+        <div class="sales-grid">
+            <div class="card-sales">
+                <img src="contenido/User-Profile-PNG.png" alt="">
+                <strong><p>Calvin Rollyson</p></strong>
+                <p>Sales Representative</p>
+                <p>CT, FL, IL, IN, IA, KS, KY</p>
+                <a href="">971 501 8996</a>
+                <a href="">crollyson2827@gmail.com</a>
+            </div>
+            <div class="card-sales">
+                <img src="contenido/User-Profile-PNG.png" alt="">
+                <strong><p>Brian Seibert</p></strong>
+                <p>Missouri, Arkansas, Tennessee, Mississippi, Louisiana, Texas</p>
+                <p>MO, AR, TN, MS, LA, TX</p>
+                <a href="">855 286 3368</a>
+                <a href="">brian@encompass-more.com</a>
+            </div>
+        </div>
+        <h1>Get to know our locations!</h1>
+    </div>
+</section>
+
+<section>
+    <div class="map-layout">
+
+  <!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search location..."
+      [(ngModel)]="searchTerm"
+      (input)="applySearch()"
+    />
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <!-- LOCATIONS -->
+  <div class="locations-list">
+    <div
+      class="location-card"
+      *ngFor="let loc of filteredLocations"
+      (click)="focusLocation(loc)"
+    >
+      <h4>{{ loc.name }}</h4>
+      <p>{{ loc.address }}</p>
+      <span class="phone">{{ loc.phone }}</span>
+    </div>
+  </div>
+
+</aside>
+
+  <!-- MAP -->
+  <div id="map"></div>
+
+</div>
+
+</section>
+

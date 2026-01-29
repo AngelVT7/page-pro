@@ -66,7 +66,26 @@ export const routes: Routes = [
                 loadComponent: () =>
                     import('./pages/news/news-detail.page').then(m => m.NewsDetailPage),
             },
-
+            {
+                path: 'contact',
+                loadComponent: () =>
+                    import('./pages/contact/contact').then(m => m.Contact),
+            },
+            {
+                path: 'request-a-sample',
+                loadComponent: () =>
+                    import('./pages/request-a-sample/request-a-sample').then(m => m.RequestASample),
+            },
+            {
+                path: 'terms-and-conditions',
+                loadComponent: () =>
+                    import('./pages/terms-and-conditions/terms-and-conditions').then(m => m.TermsAndConditions),
+            },
+            {
+                path: 'see-our-faq',
+                loadComponent: () =>
+                    import('./pages/see-our-faq/see-our-faq').then(m => m.SeeOurFAQ),
+            },
         ],
     },
     {

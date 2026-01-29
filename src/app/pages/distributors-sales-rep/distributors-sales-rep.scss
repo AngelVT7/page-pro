@@ -1,0 +1,407 @@
+// Variables (opcional, para personalizar colores, tamaños, etc.)
+$font-color: #333;
+$border-color: #ddd;
+$bg-color: #f9f9f9;
+$spacing: 1rem;
+
+// Estilos generales del contenedor
+.container {
+  text-align: center; // Centra todo el contenido de texto
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 2rem;
+
+  h1, h2, h3, p, a, strong {
+    margin: 0.5rem 0;
+    color: $font-color;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin: 2rem 0;
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem;
+  }
+}
+
+// Estilo de las tarjetas
+.card-sales {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    background-color: #eee; // placeholder si no hay imagen
+  }
+
+  strong {
+    p {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+  }
+
+  a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin: 0.4rem 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Grid para múltiples tarjetas (responsive)
+.sales-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1.5rem 0 3rem;
+
+  .card-sales {
+    margin: 0; // Anulamos el margin anterior porque ya usamos gap
+  }
+}
+
+.card-sales {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease; // ✅ Transición suave para el hover
+
+  // ✅ Efecto al pasar el mouse
+  &:hover {
+    transform: translateY(-5px); // Sube ligeramente
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); // Sombra más pronunciada
+    border-color: #007bff; // Borde con acento de color (azul Bootstrap, por ejemplo)
+    background-color: #fff; // Fondo más claro al hacer hover
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    background-color: #eee;
+    transition: transform 0.3s ease;
+
+    // Opcional: efecto hover en la imagen
+    .card-sales:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  strong {
+    p {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+  }
+
+  a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin: 0.4rem 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+//mapa//
+
+.map-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+    height: 100%;           
+  overflow: hidden;       
+}
+.search-box {
+  position: relative;
+  padding: 16px;
+
+  input {
+    width: 100%;
+    padding: 12px 40px 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+.locations-list {
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+.location-card {
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+
+  h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+  }
+
+  .phone {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #007bff;
+  }
+
+  &:hover {
+    background: #f5f9ff;
+    border-color: #007bff;
+  }
+}
+
+
+
+.location {
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+  border-bottom: 1px solid #eee;
+
+  h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #5a7f1f;
+  }
+
+  p {
+    font-size: 13px;
+    margin: 4px 0;
+  }
+
+  span {
+    font-size: 12px;
+    color: #8bc34a;
+  }
+
+  &:hover {
+    background: #f4f8ec;
+  }
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Popup */
+.popup {
+  h4 {
+    margin: 0;
+    color: #7cb342;
+  }
+
+  p {
+    margin: 4px 0;
+    font-size: 13px;
+  }
+
+  a {
+    color: #7cb342;
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
+/* Quita el popup default */
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  width: 280px;
+}
+
+.leaflet-popup-tip {
+  background: white;
+}
+
+/* POPUP CARD */
+.custom-popup {
+  position: relative;
+  font-family: inherit;
+}
+
+/* HEADER VERDE */
+.popup-header {
+  background: #9acb3b;
+  color: white;
+  padding: 14px 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* BODY */
+.custom-popup .popup-body {
+  padding: 14px 16px;
+}
+
+/* ROW: GRID DEFINITIVO */
+.custom-popup .popup-body .row {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  column-gap: 10px;
+  align-items: start;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* ICONO */
+.custom-popup .popup-body .icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8bc34a;
+}
+
+/* SVG */
+.custom-popup .popup-body svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* TEXTO */
+.custom-popup .popup-body span,
+.custom-popup .popup-body a {
+  line-height: 1.4;
+  color: #333;
+}
+
+/* BOTÓN FLOTANTE */
+.custom-popup .action-btn {
+  position: absolute;
+  right: 16px;
+  top: 52px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  cursor: pointer;
+  font-size: 18px;
+  color: #9acb3b;
+}
+.icon-img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  color: #9acb3b;
+}
+
+/* RESPONSIVE */
+
+
+@media (max-width: 768px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar {
+    max-height: 45vh;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}

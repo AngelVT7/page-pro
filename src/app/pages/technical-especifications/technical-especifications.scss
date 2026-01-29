@@ -1,5 +1,5 @@
 .specs-table {
-  padding: 60px 0;
+  padding: 30px 0;
   //background: #fafafa;
 
   .table-wrapper {
@@ -12,10 +12,10 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    // 
+    border: 1px solid #000000;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
   }
 
   thead {
@@ -94,7 +94,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 60px;
   align-items: center;
-  margin-bottom: 120px;
+  margin-bottom: 35px;
 }
 
 
@@ -103,7 +103,7 @@
 
   h2 {
     font-size: 32px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
 
   ol {
@@ -118,18 +118,28 @@
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     color: #333;
   }
 }
 
-/* imagen pequeña abajo derecha */
-.composition-image img,
-.applications-image img {
+.composition-main {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+.composition-image {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.composition-small {
+  width: 260px;
+  max-width: 70%;
+  height: auto;
 }
 
 /* ========================= */
@@ -141,7 +151,7 @@
   grid-template-columns: 1fr 1.1fr;
   gap: 60px;
   align-items: center;
-  margin: 120px 0;
+  margin: 20px 0;
 }
 
 .applications-content {
@@ -169,7 +179,7 @@
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     color: #333;
   }
@@ -180,6 +190,7 @@
   height: auto;
   object-fit: contain;
 }
+
 
 /* ========================= */
 /* RESPONSIVE */
@@ -196,7 +207,7 @@
     height: 360px;
   }
 
-  .composition-image-small {
+  #composition-image-small {
     justify-content: flex-start;
 
     img {
@@ -205,3 +216,5 @@
     }
   }
 }
+
+

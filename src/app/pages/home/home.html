@@ -1,269 +1,27 @@
 <!-- HERO -->
-         <!-- slider area start -->
-         <section class="tp-slider-area p-relative z-index-1 fix">
-            <div class="tp-slider-active-4 bg-secondary">
-               <div class="tp-slider-item-4 tp-slider-height-4 p-relative bg-secondary d-flex align-items-center" >
-                  <div class="tp-slider-thumb-4">
-                     <img src="sliders/alutec-mockup_4-1024x497.png" alt="">
-                     <div class="tp-slider-thumb-4-shape">
-                        <span class="tp-slider-thumb-4-shape-1"></span>
-                        <span class="tp-slider-thumb-4-shape-2"></span>
-                     </div>
-                  </div>
+<section class="hero-slider">
 
-                  <div class="tp-slider-video-wrapper">
-                     <!-- video -->
-                     <div class="tp-slider-video transition-3">
+  <article
+    class="hero-slide"
+    *ngFor="let bg of slideImages; let i = index"
+    [class.active]="i === current()"
+    [style.backgroundImage]="'url(' + bg + ')'"
+  ></article>
 
-                        <video loop>
-                           <source type="video/mp4"  src="the_video_link">
-                        </video>
-                     </div>
-                     <!-- video button -->
-                     <div class="tp-slider-play">
-                        
-                        <button type="button" class="tp-slider-play-btn tp-slider-video-move-btn tp-video-toggle-btn">
-                           <img class="text-shape" src="img/slider/4/shape/rounded-test.png" alt="">
-                           <span class="play-icon">
-                              <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M0.607695 20.7988L0.607695 0.0142176L18.6077 10.4065L0.607695 20.7988Z" fill="currentColor"/>
-                              </svg>
-                           </span>
-                           <span class="pause-icon">
-                              <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <rect width="5" height="20" fill="currentColor"/>
-                                 <rect x="10" width="5" height="20" fill="currentColor"/>
-                              </svg>
-                           </span>
-                        </button>
-                     </div>
-                  </div>
+  <button class="nav prev" (click)="prev()">‹</button>
+  <button class="nav next" (click)="next()">›</button>
 
-                  <div class="container">
-                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6 col-md-8">
-                           <div class="tp-slider-content-4 p-relative z-index-1">
-                              <!--<span>The original</span>-->
-                              <h3 class="tp-slider-title-4">Aluminum Composite Material</h3>
-                              <!--<div class="tp-slider-btn-4">
-                                 <a href="shop.html" class="tp-btn tp-btn-border tp-btn-border-white">Discover Now</a>
-                              </div>-->
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="tp-slider-item-4 tp-slider-height-4 p-relative bg-secondary d-flex align-items-center" >
-                  <div class="tp-slider-thumb-4">
-                     <img src="sliders/edificio-futurista-mezcla-perfectamente-paisaje-desierto_23-2151248357.webp" alt="">
-                     <div class="tp-slider-thumb-4-shape">
-                        <span class="tp-slider-thumb-4-shape-1"></span>
-                        <span class="tp-slider-thumb-4-shape-2"></span>
-                     </div>
-                  </div>
+  <div class="dots">
+    <button
+      *ngFor="let s of slideImages; let i = index"
+      [class.active]="i === current()"
+      (click)="goTo(i)"
+    ></button>
+  </div>
 
-                  <div class="tp-slider-video-wrapper">
-                     <!-- video -->
-                     <div class="tp-slider-video transition-3">
+</section>
 
-                        <video loop>
-                           <source type="video/mp4"  src="the_video_link">
-                        </video>
-                     </div>
-                     <!-- video button -->
-                     <div class="tp-slider-play">
-                        
-                        <button type="button" class="tp-slider-play-btn tp-slider-video-move-btn tp-video-toggle-btn">
-                           <img class="text-shape" src="img/slider/4/shape/rounded-test.png" alt="">
-                           <span class="play-icon">
-                              <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M0.607695 20.7988L0.607695 0.0142176L18.6077 10.4065L0.607695 20.7988Z" fill="currentColor"/>
-                              </svg>
-                           </span>
-                           <span class="pause-icon">
-                              <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <rect width="5" height="20" fill="currentColor"/>
-                                 <rect x="10" width="5" height="20" fill="currentColor"/>
-                              </svg>
-                           </span>
-                        </button>
-                     </div>
-                  </div>
 
-                  <div class="container">
-                     <div class="row align-items-center">
-                        <div class="col-xl-7 col-lg-6 col-md-8">
-                           <div class="tp-slider-content-4 p-relative z-index-1">
-                              <!-- <span>The original</span>-->
-                              <h3 class="tp-slider-title-4">Innovating Projects</h3>
-
-                              <!--<div class="tp-slider-btn-4">
-                                 <a href="shop.html" class="tp-btn tp-btn-border tp-btn-border-white">Discover Now</a>
-                              </div>-->
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="tp-slider-item-4 tp-slider-height-4 p-relative bg-secondary d-flex align-items-center" >
-                  <div class="tp-slider-thumb-4">
-                     <img src="sliders/pexels-photo-323780.webp" alt="">
-                     <div class="tp-slider-thumb-4-shape">
-                        <span class="tp-slider-thumb-4-shape-1"></span>
-                        <span class="tp-slider-thumb-4-shape-2"></span>
-                     </div>
-                  </div>
-
-                  <div class="tp-slider-video-wrapper">
-                     <!-- video -->
-                     <div class="tp-slider-video transition-3">
-
-                        <video loop>
-                           <source type="video/mp4"  src="the_video_link">
-                        </video>
-                     </div>
-                     <!-- video button -->
-                     <div class="tp-slider-play">
-                        
-                        <button type="button" class="tp-slider-play-btn tp-slider-video-move-btn tp-video-toggle-btn">
-                           <img class="text-shape" src="img/slider/4/shape/rounded-test.png" alt="">
-                           <span class="play-icon">
-                              <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M0.607695 20.7988L0.607695 0.0142176L18.6077 10.4065L0.607695 20.7988Z" fill="currentColor"/>
-                              </svg>
-                           </span>
-                           <span class="pause-icon">
-                              <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <rect width="5" height="20" fill="currentColor"/>
-                                 <rect x="10" width="5" height="20" fill="currentColor"/>
-                              </svg>
-                           </span>
-                        </button>
-                     </div>
-                  </div>
-
-                  <div class="container">
-                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6 col-md-8">
-                           <div class="tp-slider-content-4 p-relative z-index-1">
-                              <!-- <span>The original</span> -->
-                              <h3 class="tp-slider-title-4">Experience color in VR</h3>
-
-                              <!--<div class="tp-slider-btn-4">
-                                 <a href="shop.html" class="tp-btn tp-btn-border tp-btn-border-white">Discover Now</a>
-                              </div>-->
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="tp-slider-item-4 tp-slider-height-4 p-relative bg-secondary d-flex align-items-center" >
-                  <div class="tp-slider-thumb-4">
-                     <img src="sliders/black-and-white-architecture-1540-x-944-wallpaper-6hr2cq266ouj1rs8.webp" alt="">
-                     <div class="tp-slider-thumb-4-shape">
-                        <span class="tp-slider-thumb-4-shape-1"></span>
-                        <span class="tp-slider-thumb-4-shape-2"></span>
-                     </div>
-                  </div>
-
-                  <div class="tp-slider-video-wrapper">
-                     <!-- video -->
-                     <div class="tp-slider-video transition-3">
-
-                        <video loop>
-                           <source type="video/mp4"  src="the_video_link">
-                        </video>
-                     </div>
-                     <!-- video button -->
-                     <div class="tp-slider-play">
-                        
-                        <button type="button" class="tp-slider-play-btn tp-slider-video-move-btn tp-video-toggle-btn">
-                           <img class="text-shape" src="img/slider/4/shape/rounded-test.png" alt="">
-                           <span class="play-icon">
-                              <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M0.607695 20.7988L0.607695 0.0142176L18.6077 10.4065L0.607695 20.7988Z" fill="currentColor"/>
-                              </svg>
-                           </span>
-                           <span class="pause-icon">
-                              <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <rect width="5" height="20" fill="currentColor"/>
-                                 <rect x="10" width="5" height="20" fill="currentColor"/>
-                              </svg>
-                           </span>
-                        </button>
-                     </div>
-                  </div>
-
-                  <div class="container">
-                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6 col-md-8">
-                           <div class="tp-slider-content-4 p-relative z-index-1">
-                              <!--<span>The original</span>-->
-                              <h3 class="tp-slider-title-4">Inspiring the future</h3>
-
-                              <div class="tp-slider-btn-4">
-                                 <a href="shop.html" class="tp-btn tp-btn-border tp-btn-border-white">Discover Now</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            
-            <div class="tp-slider-arrow-4">
-
-            </div>
-
-            <div class="tp-slider-nav-wrapper d-none d-xl-block">
-               <div class="container">
-                  <div class="tp-slider-nav">
-                     <div class="tp-slider-nav-active">
-                        <div class="tp-slider-nav-item d-flex align-items-center">
-                           <div class="tp-slider-nav-icon">
-                              <span>
-                                 <img src="icon/edificio-moderno-de-una-casa.png" width="35px" style="filter: brightness(0) invert(1);" alt="">
-                              </span>
-                           </div>
-                           <div class="tp-slider-nav-content">
-                              <h3 class="tp-slider-nav-title">Architectural</h3>
-                           </div>
-                        </div>
-                        <div class="tp-slider-nav-item d-flex align-items-center">
-                           <div class="tp-slider-nav-icon">
-                              <span>
-                                 <img src="icon/poste-de-senal.png" width="35px" style="filter: brightness(0) invert(1);" alt="">
-                              </span>
-                           </div>
-                           <div class="tp-slider-nav-content">
-                              <h3 class="tp-slider-nav-title">Signage</h3>
-                           </div>
-                        </div>
-                        <div class="tp-slider-nav-item d-flex align-items-center">
-                           <div class="tp-slider-nav-icon">
-                              <span>
-                                 <img src="icon/enviado.png" width="35px" style="filter: brightness(0) invert(1);" alt="">
-                              </span>
-                           </div>
-                           <div class="tp-slider-nav-content">
-                              <h3 class="tp-slider-nav-title">Cargo <br> Trailer</h3>
-                           </div>
-                        </div>
-                        <div class="tp-slider-nav-item d-flex align-items-center">
-                           <div class="tp-slider-nav-icon">
-                              <span>
-                                 <img src="icon/el-mejor-padre.png" width="35px" style="filter: brightness(0) invert(1);" alt="">
-                              </span>
-                           </div>
-                           <div class="tp-slider-nav-content">
-                              <h3 class="tp-slider-nav-title">Best <br> Material</h3>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
 
 <!-- CARDS -->
 <section class="cards-section">
@@ -277,7 +35,7 @@
 </section>
 
 <section class="corporate-text">
-  <div class="container">
+  <div class="container5">
     <p>
         We are a North American company with a factory in Mexico. 
         Learn about all our ACP Alutec products with PVDF paint 
@@ -290,19 +48,57 @@
 <!-- ABOUT PREVIEW -->
 <section class="about-preview">
     <div class="container">
-        <a href="/productos" class="btn-products">Our Products</a>
+        <a href="/colors" class="btn-products">Our Products</a>
         <h2>Aluminium Panels Redifined #WhatsYourColor</h2>
         <p>
             Follow us on Instagram for inspiration.
         </p> <br>
-        <a href="https://www.instagram.com/alutecacp/" target="_blank" class="btn-instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
-                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-            </svg>
-            <span>Follow on Instagram</span>
-        </a>
+         <div class="social-buttons">
+            <a href="https://www.instagram.com/alutecacp/" target="_blank" class="btn-instagram">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+               </svg>
+               <span>Follow on Instagram</span>
+         </a>
+          <a
+               href="https://www.linkedin.com/company/alutec/"
+               target="_blank"
+               rel="noopener"
+               class="btn-linkedin"
+               >
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                  <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 01107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+               </svg>
+               <span>Follow on LinkedIn</span>
+            </a>
+         </div>
     </div>
 </section>
+
+<!-- historias -->
+<section class="social-updates-section">
+  <div class="container">
+    <h2>Our Social Networks</h2>
+    <p>Latest stories and publications</p>
+
+    <div class="social-grid">
+      <!-- Instagram Stories -->
+      <div class="social-card instagram-card">
+        <h3>Instagram Stories</h3>
+        <!-- Aquí va SOLO el div (el script ya se carga arriba) -->
+        <div class="sk-ww-instagram-hashtag-feed" data-embed-id="25646301"></div>
+      </div>
+
+      <!-- LinkedIn Posts -->
+      <div class="social-card linkedin-card">
+        <h3>LinkedIn post</h3>
+        <div class="sk-ww-linkedin-profile-post" data-embed-id="25646248"></div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
 
 <!-- NEWS -->
 <section class="related-news" *ngIf="related$ | async as related">

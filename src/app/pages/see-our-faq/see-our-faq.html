@@ -1,0 +1,43 @@
+<section class="faq-section">
+  <div class="container">
+    <header class="faq-header">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <p class="faq-subtitle">Find answers to common questions about our services</p>
+    </header>
+
+    <div class="faq-accordion">
+      @for (item of faqItems(); track $index) {  
+        <div class="faq-item" [class.open]="item.isOpen">
+          <button 
+            class="faq-question" 
+            (click)="toggleItem($index)"
+            [attr.aria-expanded]="item.isOpen"
+            [attr.aria-controls]="'faq-answer-' + $index"
+          >
+            <span class="faq-text">{{ item.question }}</span>
+            <svg 
+              class="faq-icon" 
+              [class.rotate]="item.isOpen" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24"
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+            >
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+          
+          <div 
+            class="faq-answer" 
+            [id]="'faq-answer-' + $index"
+            [class.expanded]="item.isOpen"
+          >
+            <p>{{ item.answer }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
