@@ -1,4 +1,3 @@
-<!-- HERO -->
 <section class="hero-slider">
 
   <article
@@ -8,9 +7,13 @@
     [style.backgroundImage]="'url(' + bg + ')'"
   ></article>
 
-  <button class="nav prev" (click)="prev()">‹</button>
-  <button class="nav next" (click)="next()">›</button>
+  <!-- CONTROLES -->
+  <div class="hero-controls">
+    <button class="nav prev" (click)="prev()">‹</button>
+    <button class="nav next" (click)="next()">›</button>
+  </div>
 
+  <!-- DOTS -->
   <div class="dots">
     <button
       *ngFor="let s of slideImages; let i = index"
@@ -20,6 +23,7 @@
   </div>
 
 </section>
+
 
 
 
